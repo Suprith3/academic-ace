@@ -6,7 +6,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const analyzeQuestionPaper = async (text: string) => {
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-2.5-flash',
     contents: `Analyze the provided exam paper text.
     
     1. Extract core topics.
@@ -32,7 +32,7 @@ export const analyzeQuestionPaper = async (text: string) => {
 
 export const generateSolutionsFromNotes = async (questions: string[], notesText: string): Promise<QuestionSolution[]> => {
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-2.5-flash',
     contents: `You are a specialized academic tutor. Solve the following exam questions using ONLY the provided study notes.
     
     STRICT RULES:
@@ -65,7 +65,7 @@ export const generateStudyPlan = async (
   notesContext?: string
 ) => {
   const response = await ai.models.generateContent({
-    model: 'gemini-3-pro-preview',
+    model: 'gemini-2.5-flash',
     contents: `Create a detailed daily study schedule for ${daysLeft} days. 
     Topics & Weights: ${JSON.stringify(topics)}
     Student Level: ${knowledgeLevel}
@@ -95,7 +95,7 @@ export const refineStudyPlan = async (
   userPrompt: string
 ) => {
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-2.5-flash',
     contents: `Modify this study plan based on: "${userPrompt}"
     Current Plan: ${JSON.stringify(currentPlan)}
     Respond STRICTLY in JSON: { "days": [...] }`,

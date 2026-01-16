@@ -60,7 +60,8 @@ const StudyPlanPage: React.FC<StudyPlanPageProps> = ({ initialDocId }) => {
       setCurrentPlan(savedPlan);
       setStep('view');
     } catch (err: any) {
-      setError("AI Generation failed. Verify API configuration.");
+      console.error("Study plan generation error:", err);
+      setError(`AI Generation failed: ${err?.message || 'Unknown error'}`);
       setStep('form');
     }
   };
