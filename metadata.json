@@ -1,0 +1,5 @@
+{
+  "name": "Academic Ace",
+  "description": "An intelligent student productivity platform that analyzes question papers, extracts key topics, and generates personalized, data-driven study schedules using Gemini AI.",
+  "requestFramePermissions": []
+}
